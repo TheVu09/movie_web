@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm mb-4">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <i class="bi bi-film"></i> Movie Web
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">
+                        <i class="bi bi-house"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/favorites">
+                        <i class="bi bi-heart-fill text-danger"></i> Favorites
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <% if (username) { %>
+                    <li class="nav-item">
+                        <span class="nav-link">
+                            <i class="bi bi-person-circle"></i>
+                            <%= username %>
+                        </span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-danger btn-sm" href="/logout">
+                            <i class="bi bi-box-arrow-right"></i> Logout
+                        </a>
+                    </li>
+                    <% } else { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">
+                                <i class="bi bi-box-arrow-in-right"></i> Login
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-outline-light btn-sm" href="/register">
+                                <i class="bi bi-person-plus"></i> Register
+                            </a>
+                        </li>
+                        <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>

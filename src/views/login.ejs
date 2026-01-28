@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Movie Web</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body class="bg-dark">
+    <%- include('partials/navbar') %>
+
+        <div class="container">
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-5">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body p-5">
+                            <div class="text-center mb-4">
+                                <i class="bi bi-film text-danger" style="font-size: 3rem;"></i>
+                                <h2 class="mt-3">Welcome Back</h2>
+                                <p class="text-muted">Login to continue to Movie Web</p>
+                            </div>
+                            <form method="POST" action="/login">
+                                <div class="mb-3">
+                                    <label class="form-label">
+                                        <i class="bi bi-person"></i> Username
+                                    </label>
+                                    <input type="text" name="username" class="form-control form-control-lg"
+                                        placeholder="Enter your username" required />
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label">
+                                        <i class="bi bi-lock"></i> Password
+                                    </label>
+                                    <input type="password" name="password" class="form-control form-control-lg"
+                                        placeholder="Enter your password" required />
+                                </div>
+                                <button type="submit" class="btn btn-danger btn-lg w-100">
+                                    <i class="bi bi-box-arrow-in-right"></i> Login
+                                </button>
+                            </form>
+                            <div class="text-center mt-4">
+                                <p class="text-muted">
+                                    Don't have an account?
+                                    <a href="/register" class="text-danger text-decoration-none">Register here</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include('partials/footer') %>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
