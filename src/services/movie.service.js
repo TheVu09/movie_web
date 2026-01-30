@@ -36,6 +36,7 @@ const getMovieDetail = async (id) => {
     }
 
     const trailerUrl = await getMovieTrailer(id);
+    const providers = await getMovieProviders(id);
 
     return {
         id: movie.id,
@@ -44,7 +45,8 @@ const getMovieDetail = async (id) => {
         releaseDate: movie.release_date,
         rating: movie.vote_average,
         poster: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
-        trailerUrl
+        trailerUrl,
+        providers
     };
 }
 
@@ -78,10 +80,26 @@ const getMovieTrailer = async (id) => {
     return `https://www.youtube.com/embed/${trailer.key}`;
 }
 
+const getMovieProviders = async (id) => {
+    const results = await movieRepo.getMovieProviders(id);
+
+    const countryData = results.VN || results.US;
+
+    if (!countryData) return null;
+
+    return {
+        link: countryData.link,
+        flatrate: countryData.flatrate || [],
+        rent: countryData.rent || [],
+        buy: countryData.buy || []
+    };
+};
+
 export default {
     getPopularMovies,
     searchMovies,
     getMovieDetail,
     getMovieCast,
-    getMovieTrailer
+    getMovieTrailer,
+    getMovieProviders
 };

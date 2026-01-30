@@ -75,10 +75,27 @@ const getMovieTrailers = async(id) => {
     }
 };
 
+const getMovieProviders = async (id) => {
+    try {
+        const url = `${env.tmdbBaseUrl}/movie/${id}/watch/providers`;
+
+        const response = await axios.get(url, {
+            params: {
+                api_key: env.tmdbApiKey
+            }
+        });
+
+        return response.data.results;
+    } catch (err) {
+        return {};
+    }
+};
+
 export default {
     getPopularMovies,
     searchMovies,
     getMovieDetail,
     getMovieCast,
-    getMovieTrailers
+    getMovieTrailers,
+    getMovieProviders
 };

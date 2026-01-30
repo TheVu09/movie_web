@@ -11,7 +11,7 @@ export const getMovieApi = async (req, res) => {
     }
 
     res.json({
-        succes: true,
+        success: true,
         data: movies
     });
 };
@@ -40,7 +40,7 @@ export const getWatchMoviePage = async (req, res) => {
 
         const movie = await movieService.getMovieDetail(id);
 
-        res.render("watch", {movie});
+        res.render("watch", { movie });
     } catch (err) {
         res.status(404).render("404", {
             message: "Movie not found"
